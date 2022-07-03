@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ChildA from "./ChildA"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = ()=>{
+
+  const [output,setOutput] = useState([]);
+
+  const childdata =(dt)=>{
+    setOutput(dt)
+  }
+  console.log(output);
+  return(
+    <>
+    <h1>hiiimran</h1>
+      {
+        output.map((e,ind)=>{
+          return <h1 key={ind}>{e}</h1>
+        })
+      }
+      <ChildA data={childdata} />
+    </>
+  )
 }
 
-export default App;
+export default App
